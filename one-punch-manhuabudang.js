@@ -1,11 +1,15 @@
 // ==UserScript==
 // @name         ONE PUNCH MANHUABUDANG
-// @namespace    http://tampermonkey.net/
-// @version      0.1
+// @namespace    https://github.com/makaria/Tampermonkey-script/blob/master/one-punch-manhuabudang.js
+// @version      1.0
 // @description  Auto punch for manhuabudang.com
-// @author       You
-// @match        https://www.manhuabudang.com/*
-// @match        http://www.manhuabudang.com/*
+// @author       maka
+// @match        https://www.manhuabudang.com
+// @match        https://www.manhuabudang.com/index.php
+// @match        https://www.manhuabudang.com/u.php
+// @match        http://www.manhuabudang.com
+// @match        http://www.manhuabudang.com/index.php
+// @match        http://www.manhuabudang.com/u.php
 // @grant        none
 // @run-at       document-start
 // ==/UserScript==

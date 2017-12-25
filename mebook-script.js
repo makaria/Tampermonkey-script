@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         Auto Redirect and Autofill for mebook.cc
-// @namespace    http://tampermonkey.net/
-// @version      0.1
+// @namespace    https://github.com/makaria/Tampermonkey-script/blob/master/mebook-script.js
+// @version      1.0
 // @description  auto redirect to baidu yun when open a mebook.cc download link, and autofill the pwd!
-// @author       Maka
-// @match        https://greasyfork.org/zh-CN/help/meta-keys
+// @author       maka
 // @grant        none
 // @include      http://mebook.cc/*
+// @include      https://mebook.cc/*
 // @include      http://pan.baidu.com/*
 // @include      https://pan.baidu.com/*
 // @run-at       document-start
