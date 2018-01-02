@@ -12,31 +12,31 @@
 
 (function() {
     'use strict';
-     var addGlobalStyle = function (cssText) {
-         var head, style;
-         head = document.getElementsByTagName('head')[0];
-         if (!head) { return; }
-         style = document.createElement('style');
-         style.type = 'text/css';
-         style.innerHTML = cssText;
-         head.appendChild(style);
-     };
-     var start = function () {
-         console.log('start');
-         /**var num = document.querySelector('div.num');
-         if (num) {
-             num.style.display = 'none';
-         }**/
-         var none = 'div.num { display: none !important; }';
-         addGlobalStyle(none);
-     };
-     var domReady = function (callback) {
-         console.log('dom ready', document.readyState);
-         if (document.readyState === "complete" || document.readyState === "interactive") {
-             setTimeout(callback, 1);
-         } else {
-             addEventListener('DOMContentLoaded', callback, false);
-         }
-     };
-     domReady(start);
+    var addGlobalStyle = function(cssText) {
+        var head, style;
+        head = document.getElementsByTagName('head')[0];
+        if (!head) { return; }
+        style = document.createElement('style');
+        style.type = 'text/css';
+        style.innerHTML = cssText;
+        head.appendChild(style);
+    };
+    var start = function() {
+        console.log('start');
+        /**var num = document.querySelector('div.num');
+     if (num) {
+         num.style.display = 'none';
+        }**/
+        var none = 'div.num { display: none !important; }';
+        addGlobalStyle(none);
+    };
+    var domReady = function(callback) {
+        console.log('dom ready', document.readyState);
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+            setTimeout(callback, 1);
+        } else {
+            addEventListener('DOMContentLoaded', callback, false);
+        }
+    };
+    domReady(start);
 })();

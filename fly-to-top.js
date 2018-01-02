@@ -14,9 +14,8 @@
 // @run-at       document-start
 // ==/UserScript==
 
-//top button
-
 (function() {
+    'use strict';
     var start = function() {
         var button = document.createElement('span');
         button.style.opacity = 0.3;
@@ -48,7 +47,7 @@
         }, false);
         document.body.appendChild(button);
     };
-    var domReady = function (callback) {
+    var domReady = function(callback) {
         // console.log('dom ready');
         if (document.readyState === "complete" || document.readyState === "interactive") {
             setTimeout(callback, 1);

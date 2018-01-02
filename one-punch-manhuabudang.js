@@ -16,9 +16,11 @@
 
 (function() {
     'use strict';
-    var mockPunch = function () {
+    var mockPunch = function() {
         console.log('punch---mock punch');
-        var userInit = {credentials: "include"};
+        var userInit = { 
+            credentials: "include"
+        };
         var userUrl = location.protocol + '//' + location.host + '/u.php';
         fetch(userUrl, userInit)
         .then((req) => {
@@ -60,7 +62,7 @@
             });
         });
     };
-    var realPunch = function () {
+    var realPunch = function() {
         console.log('punch---real punch!');
         var disabled = document.querySelectorAll('.card.card_old')[0].disabled;
         if (!disabled) {
@@ -70,7 +72,7 @@
             console.info('punch---已经打过卡啦~');
         }
     };
-    var start = function () {
+    var start = function() {
         console.log('punch---start');
         var path = location.pathname;
         var reg = /u\.php/;
@@ -81,7 +83,7 @@
             mockPunch();
         }
     };
-    var domReady = function (callback) {
+    var domReady = function(callback) {
         // console.log('dom ready');
         if (document.readyState === "complete" || document.readyState === "interactive") {
             setTimeout(callback, 1);
