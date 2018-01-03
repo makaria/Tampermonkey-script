@@ -23,11 +23,8 @@
     };
     var start = function() {
         console.log('start');
-        /**var num = document.querySelector('div.num');
-     if (num) {
-         num.style.display = 'none';
-        }**/
-        var none = 'div.num { display: none !important; }';
+        // 脚本什么的已经不需要了，因为已经不再有活动，可以隐藏了。
+        var none = 'a[href="//account.bilibili.com/account/big"] > div.num { display: none !important; }';
         addGlobalStyle(none);
     };
     var domReady = function(callback) {
