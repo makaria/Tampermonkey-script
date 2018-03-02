@@ -17,6 +17,9 @@
 (function() {
     'use strict';
     var start = function() {
+        createElement();
+    };
+    var createElement = function () {
         var button = document.createElement('span');
         button.style.opacity = 0.3;
         button.style.transitionDuration = '0.2s';
@@ -41,11 +44,37 @@
             button.style.opacity = 0.3;
         }, false);
         button.addEventListener('click', function() {
-            window.scrollTo(0, 0);
-            document.querySelector('body').scrollTop = 0;
-            document.querySelector('html').scrollTop = 0;
+            getScrollElement();
         }, false);
-        document.body.appendChild(button);
+        button.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            button.style.display = 'none';
+        });
+        window.top.document.body.appendChild(button);
+    };
+    var traversalUsingTreeWalker = function (node) {
+        var els = [];
+        var treeWalker = document.createTreeWalker(node, NodeFilter.SHOW_ELEMENT,null,false);
+        node = treeWalker.nextNode();
+        while (node != null) {
+            // console.log(node.tagName);
+            var scrollTop = node.scrollTop;
+            if (scrollTop !== 0) {
+                els.push(node);
+            }
+            node = treeWalker.nextNode();
+        }
+        return els;
+    };
+    var getScrollElement = function () {
+        var els = traversalUsingTreeWalker(window.top.document);
+        fly(els);
+    };
+    var fly = function (els) {
+        window.scrollTo(0, 0);
+        els.forEach((el) => {
+            el.scrollTop = 0;
+        });
     };
     var domReady = function(callback) {
         // console.log('dom ready');

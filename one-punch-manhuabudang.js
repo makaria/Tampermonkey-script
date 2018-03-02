@@ -18,7 +18,7 @@
     'use strict';
     var mockPunch = function() {
         console.log('punch---mock punch');
-        var userInit = { 
+        var userInit = {
             credentials: "include"
         };
         var userUrl = location.protocol + '//' + location.host + '/u.php';
@@ -73,7 +73,7 @@
         }
     };
     var start = function() {
-        console.log('punch---start');
+        // console.log('punch---start');
         var path = location.pathname;
         var reg = /u\.php/;
         var result = reg.test(path);

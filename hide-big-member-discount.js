@@ -22,13 +22,13 @@
         head.appendChild(style);
     };
     var start = function() {
-        console.log('start');
+        // console.log('start');
         // 脚本什么的已经不需要了，因为已经不再有活动，可以隐藏了。
         var none = 'a[href="//account.bilibili.com/account/big"] > div.num { display: none !important; }';
         addGlobalStyle(none);
     };
     var domReady = function(callback) {
-        console.log('dom ready', document.readyState);
+        // console.log('dom ready', document.readyState);
         if (document.readyState === "complete" || document.readyState === "interactive") {
             setTimeout(callback, 1);
         } else {

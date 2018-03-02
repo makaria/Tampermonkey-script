@@ -15,7 +15,7 @@
 (function() {
     'use strict';
     var extractPwd = function() {
-        console.log('pwd');
+        // console.log('pwd');
         // select p
         var dom = document.querySelector('.desc').children[6];
         // text like '网盘密码：百度网盘密码：hcbf     天翼云盘密码：4476'
@@ -26,7 +26,7 @@
         return pwd;
     };
     var getUrl = function() {
-        console.log('url');
+        // console.log('url');
         var a = document.querySelector('.list a');
         return a && a.href;
     };
@@ -39,7 +39,7 @@
         return button;
     };
     var redirectToDownload = function() {
-        console.log('download');
+        // console.log('download');
         var a = document.querySelector('.downbtn');
         // not work?
         //a.click();
@@ -49,19 +49,19 @@
         //window.open(a.href, '_blank');
     };
     var redirectToBaidu = function() {
-        console.log('baidu');
+        // console.log('baidu');
         var url = getUrl();
         var pwd = extractPwd();
         if (url && pwd) {
             var href = url + "#" + pwd;
-            console.log(href);
+            // console.log(href);
             location.assign(href);
         } else {
             console.error('invalid url or pwd', 'url: ', url, 'pwd: ', pwd);
         }
     };
     var autoFill = function() {
-        console.log('auto fill');
+        // console.log('auto fill');
         var hash = location.hash;
         var pwd = hash.match(/^#(.{4})/)[1];
         var input = getBaiduInput();
@@ -70,7 +70,7 @@
         button.click();
     };
     var start = function() {
-        console.log('start');
+        // console.log('start');
         var href = location.href;
         var baidu = /baidu/;
         var download = /download/;
@@ -84,7 +84,7 @@
         }
     };
     var domReady = function(callback) {
-        console.log('dom ready');
+        // console.log('dom ready');
         if (document.readyState === "complete" || document.readyState === "interactive") {
             setTimeout(callback, 1);
         } else {
