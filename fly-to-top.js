@@ -16,12 +16,23 @@
 
 (function() {
     'use strict';
+    console.log('reload');
     var start = function() {
-        createElement();
+        load();
+    };
+    var load = function () {
+        var span = window.top.document.getElementById('fly-to-top');
+        if (span) {
+            console.info('No need to create the button');
+        } else {
+            createElement();
+        }
     };
     var createElement = function () {
+        console.log('createElement');
         var button = document.createElement('span');
-        button.style.opacity = 0.3;
+        button.id = 'fly-to-top';
+        button.style.opacity = 0.2;
         button.style.transitionDuration = '0.2s';
         button.style.backgroundImage = 'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAJcEhZcwAACxMAAAsTAQCanBgAAAACYktHRAD/h4/MvwAAARlJREFUaEPtlD2KAkEQRkc91sTqiSb1B2QRvJOBiaCewcxcEUx3v3K6VMRRu7qL2oF68JjWQL5HD3aqqiraTDc8W4sHWOMB1niANR5gjQdY4wHWeIA12gGToBqaATR8HFSL0Arg8YxahEbA83hGJSJ3QNN4JntEzoBX48/wWB9vZI3IFdA0fgj7UC0iR8C78Wu4g2oRqQGfxjNqESkB345nKGIAs0ZIA2LHM1tIEafrpzviCEmAdDxDEfQ6ZYmQBPyGJxMznmm6iWgkAVM4qo+i8cwGPkbQ70bfQK8sy3CMYgUv8AdKxjMHuIR7OKMvYkn5F1rAlPEM3cS8PsaTEvAv8ABrPMAaD7DGA6zxAGs8wBoPsKblAUXxB4ozRWtoGc5gAAAAAElFTkSuQmCC")';
         button.style.backgroundRepeat =  'no-repeat';
@@ -41,7 +52,7 @@
             button.style.opacity = 1;
         }, false);
         button.addEventListener('mouseout', function() {
-            button.style.opacity = 0.3;
+            button.style.opacity = 0.2;
         }, false);
         button.addEventListener('click', function() {
             getScrollElement();
@@ -51,6 +62,7 @@
             button.style.display = 'none';
         });
         window.top.document.body.appendChild(button);
+        window.removeEventListener('DOMContentLoaded', start, false);
     };
     var traversalUsingTreeWalker = function (node) {
         var els = [];
@@ -81,7 +93,7 @@
         if (document.readyState === "complete" || document.readyState === "interactive") {
             setTimeout(callback, 1);
         } else {
-            addEventListener('DOMContentLoaded', callback, false);
+            window.addEventListener('DOMContentLoaded', callback, false);
         }
     };
     domReady(start);
